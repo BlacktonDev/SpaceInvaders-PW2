@@ -15,16 +15,19 @@ export default class BulletController {
   }
 
   draw(ctx) {
+    //eliminar balas que salgan del canvas
     this.bullets = this.bullets.filter(
       (bullet) => bullet.y + bullet.width > 0 && bullet.y <= this.canvas.height
     );
-
+    
+    //limitar disparos
     this.bullets.forEach((bullet) => bullet.draw(ctx));
     if (this.timeTillNextBulletAllowed > 0) {
       this.timeTillNextBulletAllowed--;
     }
   }
 
+  //Colicion de las balas 
   collideWith(sprite) {
     const bulletThatHitSpriteIndex = this.bullets.findIndex((bullet) =>
       bullet.collideWith(sprite)

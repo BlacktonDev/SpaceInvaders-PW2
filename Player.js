@@ -29,12 +29,12 @@ export default class Player {
   }
 
   collideWithWalls() {
-    //left
+    //Izquierda
     if (this.x < 0) {
       this.x = 0;
     }
 
-    //right
+    //Derecha
     if (this.x > this.canvas.width - this.width) {
       this.x = this.canvas.width - this.width;
     }
